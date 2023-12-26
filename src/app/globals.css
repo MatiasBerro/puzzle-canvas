@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  border: 0px;
+}
+#root {
+  margin: 0 auto;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+.cutting-cursor {
+  cursor: url('../../public/scissors-1.gif'), auto;
+  animation: cursor 0.5s linear infinite;
+}
+.scissors-cursor {
+  cursor: url('../../public/scissors-1.gif'), auto;
+}
+
+@keyframes cursor {
+  0% {
+    cursor: url('../../public/scissors-1.gif'), auto;
+  }
+  20% {
+    cursor: url('../../public/scissors-2.gif'), auto;
+  }
+  40% {
+    cursor: url('../../public/scissors-3.gif'), auto;
+  }
+  60% {
+    cursor: url('../../public/scissors-3.gif'), auto;
+  }
+  80% {
+    cursor: url('../../public/scissors-2.gif'), auto;
+  }
+  100% {
+    cursor: url('../../public/scissors-1.gif'), auto;
+  }
+}
