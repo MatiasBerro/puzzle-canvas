@@ -1,9 +1,5 @@
 import { create } from 'zustand';
-import {
-  calculateXOffset,
-  calculateYOffset,
-  updateCompositeImage
-} from '@/lib/utils';
+import { calculateXOffset, calculateYOffset } from '@/lib/utils';
 
 type State = {
   canvas: HTMLCanvasElement | null;
@@ -49,19 +45,18 @@ const useGameStore = create<State>((set, get) => ({
     // Remove the piece from the list
     const newPieces = pieces.filter((_, index) => index !== pieceIndex);
 
-    // Update the composite image
-    await updateCompositeImage(get().canvas, newPieces);
-
-    // Draw the restored piece back onto the main canvas
     const restoredImage = new Image();
+    restoredImage.src = selectedPiece.image; // Data URL of the piece's image
+
     restoredImage.onload = () => {
+      get().piecesCtx.globalCompositeOperation = 'destination-out';
       get().piecesCtx?.drawImage(
         restoredImage,
         calculateXOffset(selectedPiece.points),
         calculateYOffset(selectedPiece.points)
       );
+      get().piecesCtx.globalCompositeOperation = 'source-over';
     };
-    restoredImage.src = selectedPiece.image; // Data URL of the piece's image
 
     const gameCompleted = userDrop && newPieces.length === 0;
     await set({

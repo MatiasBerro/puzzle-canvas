@@ -12,7 +12,7 @@ function ShuffleButton() {
       onClick={() => {
         setPieces([...pieces].sort(() => Math.random() - 0.5));
       }}
-      show={pieces.length > 2}
+      show={pieces.length > 2 ? true : false}
     >
       <ShuffleIcon />
     </ShuffleButtonWrapper>

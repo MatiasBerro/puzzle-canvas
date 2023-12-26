@@ -120,20 +120,6 @@ const useDrawing = (canvasRef: any, drawRef: any, piecesRef: any) => {
       height
     );
 
-    // Apply the user's drawing from the draw canvas
-    pieceCanvasCtx.globalCompositeOperation = 'source-atop';
-    pieceCanvasCtx.drawImage(
-      piecesRef.current,
-      xOffset,
-      yOffset,
-      width,
-      height,
-      0,
-      0,
-      width,
-      height
-    );
-
     // Exclude parts that overlap with shapes on the pieces canvas
     pieceCanvasCtx.globalCompositeOperation = 'destination-out';
     pieceCanvasCtx.drawImage(
@@ -162,6 +148,7 @@ const useDrawing = (canvasRef: any, drawRef: any, piecesRef: any) => {
       points.forEach((point: any) => {
         piecesCtx?.lineTo(point.x, point.y);
       });
+
       piecesCtx?.closePath();
       piecesCtx.fillStyle = ' #d3d3d3';
       piecesCtx.fill();

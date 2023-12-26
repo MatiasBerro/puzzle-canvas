@@ -10,7 +10,7 @@ function MoveIcon() {
       fill="none"
     >
       <g
-        clip-path="url(#a)"
+        clipPath="url(#a)"
         stroke="#292929"
         strokeWidth="2.5"
         strokeLinecap="round"
