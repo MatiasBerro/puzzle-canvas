@@ -22,7 +22,7 @@ function Dialog({
   return (
     <DialogBox open={isOpen}>
       <DialogContent>
-        <DialogText>Are you sure you want to restore the piece?</DialogText>
+        <DialogText>Are you sure you want to delete this piece?</DialogText>
         <ButtonWrapper>
           <Button onClick={() => setIsOpen(false)} color={'#9CA3AF'}>
             Cancel
@@ -34,7 +34,7 @@ function Dialog({
             }}
             color={'#EF4444'}
           >
-            Yes
+            Delete
           </Button>
         </ButtonWrapper>
       </DialogContent>
